@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 import backgroundImage from "../assets/asesor3.png";
+
+const phone = "573113139609";
+const message = encodeURIComponent("Hola, me gustaría obtener más información sobre sus servicios.");
 ---
 
 <section
@@ -22,9 +25,10 @@ import backgroundImage from "../assets/asesor3.png";
       rápidos y seguros.
     </p>
     <a
-      href="#planes"
+      href={`https://wa.me/${phone}?text=${message}`}
+      target="_blank"
       class="bg-accent text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-accent-dark transition-transform transform hover:scale-105 shadow-2xl animate-on-scroll"
-      style="transition-delay: 400ms;">Descubre tu Plan Ideal</a
+      style="transition-delay: 400ms;">Afiliate Ahora</a
     >
   </div>
 </section>
