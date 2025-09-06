@@ -58,33 +58,30 @@ import "../styles/global.css";
 </section>
 
 <script>
-    // FAQ Accordion
+  // FAQ Accordion
   const accordionHeaders = document.querySelectorAll(".accordion-header");
   accordionHeaders.forEach((header) => {
     header.addEventListener("click", () => {
       const content = header.nextElementSibling as HTMLElement | null;
-      const icon = header.querySelector(".accordion-icon");
+      const icon = header.querySelector(".accordion-icon") as HTMLElement | null;
 
-      const isOpening = content?.style.maxHeight;
+      const isOpening = content && !content.style.maxHeight;
 
       // Close all other accordions
       document.querySelectorAll(".accordion-content").forEach((item) => {
-        (item as HTMLElement).style.maxHeight = "";
-        const prevSibling = item.previousElementSibling;
-        if (prevSibling) {
-          const icon = prevSibling.querySelector(".accordion-icon");
-          if (icon) {
-            icon.classList.remove("rotate-180");
-          }
+        const itemEl = item as HTMLElement;
+        itemEl.style.maxHeight = "";
+        const prev = item.previousElementSibling as HTMLElement | null;
+        const prevIcon = prev && prev.querySelector(".accordion-icon") as HTMLElement | null;
+        if (prevIcon) {
+          prevIcon.classList.remove("rotate-180");
         }
       });
 
       // Open the clicked one if it was closed
-      if (isOpening) {
+      if (isOpening && content && icon) {
         content.style.maxHeight = content.scrollHeight + "px";
-        if (icon) {
-          icon.classList.add("rotate-180");
-        }
+        icon.classList.add("rotate-180");
       }
     });
   });
