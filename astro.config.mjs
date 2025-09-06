@@ -12,6 +12,7 @@ export default defineConfig({
     astroIcon({
       svgoOptions: {
         'fa6-solid': () => import('@iconify-json/fa6-solid/icons.json'),
+        'fa6-brands': () => import('@iconify-json/fa6-brands/icons.json'),
       },
     }),
   ],
