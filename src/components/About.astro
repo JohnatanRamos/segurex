@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import teamImage from "../assets/grupito.png";
+import officeImage from "../assets/personas.jpg";
+---
+
+<section id="nosotros" class="py-20 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Text Content -->
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">8 años de experiencia protegiendo familias</h2>
+                <p class="text-gray-600 text-lg mb-8">Desde 2017, somos una institución comprometida con el bienestar social, brindando servicios de calidad que garantizan la protección y seguridad de nuestros afiliados.</p>
+                <div class="flex space-x-12">
+                    <div>
+                        <p class="text-4xl font-bold text-primary">2,000+</p>
+                        <p class="text-gray-500 font-medium">Afiliados Activos</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-bold text-primary">20+</p>
+                        <p class="text-gray-500 font-medium">Empresas Aliadas</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Image Content -->
+            <div class="hidden lg:block relative h-96 animate-on-scroll" style="transition-delay: 200ms;">
+                <img src={teamImage.src} alt="Nuestro Equipo" class="absolute top-0 left-0 rounded-xl shadow-2xl w-4/5 transform -rotate-3 transition-transform duration-300 hover:rotate-0 hover:scale-105 z-10">
+                <img src={officeImage.src} alt="Nuestras Oficinas" class="absolute bottom-0 right-0 rounded-xl shadow-2xl w-4/5 transform rotate-3 transition-transform duration-300 hover:rotate-0 hover:scale-105">
+            </div>
+        </div>
+    </div>
+</section>
