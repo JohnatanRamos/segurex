@@ -4,6 +4,12 @@ import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import About from "../components/About.astro";
+import KeyPoints from "../components/KeyPoints.astro";
+import Plans from "../components/Plans.astro";
+import Faq from "../components/Faq.astro";
+import Location from "../components/Location.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
@@ -13,7 +19,13 @@ import "../styles/global.css";
     <Hero />
     <Services />
     <About />
+    <KeyPoints />
+    <Plans />
+    <Faq />
+    <Location />
+    <Contact />
   </main>
+  <Footer />
 </Layout>
 
 <script>
@@ -23,36 +35,7 @@ import "../styles/global.css";
     mobileMenu?.classList.toggle("hidden");
   });
 
-  // FAQ Accordion
-  const accordionHeaders = document.querySelectorAll(".accordion-header");
-  accordionHeaders.forEach((header) => {
-    header.addEventListener("click", () => {
-      const content = header.nextElementSibling as HTMLElement | null;
-      const icon = header.querySelector(".accordion-icon");
-
-      const isOpening = content?.style.maxHeight;
-
-      // Close all other accordions
-      document.querySelectorAll(".accordion-content").forEach((item) => {
-        (item as HTMLElement).style.maxHeight = "";
-        const prevSibling = item.previousElementSibling;
-        if (prevSibling) {
-          const icon = prevSibling.querySelector(".accordion-icon");
-          if (icon) {
-            icon.classList.remove("rotate-180");
-          }
-        }
-      });
-
-      // Open the clicked one if it was closed
-      if (isOpening) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        if (icon) {
-          icon.classList.add("rotate-180");
-        }
-      }
-    });
-  });
+  
 
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
