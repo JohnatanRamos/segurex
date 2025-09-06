@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+---
+
+<section id="faq" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary animate-on-scroll">Resolvemos tus Dudas</h2>
+            <p class="text-gray-600 mt-4 animate-on-scroll" style="transition-delay: 200ms;">Aquí encontrarás respuestas claras a las preguntas más comunes.</p>
+        </div>
+        <div class="space-y-4 animate-on-scroll" id="faq-accordion">
+            {[
+                {
+                    question: "¿Se puede afiliar solo a EPS?",
+                    answer: "Sí, manejamos un plan de solo EPS donde tienes derecho a citas médicas, urgencias, odontología, cirugías y pago de máximo 90 días de incapacidad."
+                },
+                {
+                    question: "¿Puedo afiliar a mis padres e hijos a la caja de compensación?",
+                    answer: "Sí. Los hijos se pueden afiliar. Los padres también, siempre y cuando dependan económicamente del cotizante. Reciben subsidio si son mayores de 60 años, no tienen pensión y no están afiliados por otro hijo."
+                },
+                {
+                    question: "¿Pagan incapacidades?",
+                    answer: "Sí, pagamos incapacidades después de 60 días de estar afiliados con Segurex. Para usuarios obligados a pagar pensión, se tramitarán máximo 90 días. Para quienes no están obligados, no hay límite de días."
+                },
+                {
+                    question: "¿En cuánto tiempo quedo activo?",
+                    answer: "Para estar activo en la EPS, el tiempo es de 2 a 6 días hábiles, dependiendo de la entidad."
+                },
+                {
+                    question: "¿Debo pagar antes o después?",
+                    answer: "El pago lo debes realizar para poder empezar el trámite de la afiliación."
+                },
+                {
+                    question: "¿A qué EPS me afilian?",
+                    answer: "La afiliación se hará en la última EPS en la que estuviste. Si nunca has estado afiliado, puedes elegir la que más te guste."
+                },
+                {
+                    question: "¿Si estoy en embarazo me pueden afiliar?",
+                    answer: "No, por políticas empresariales, las mujeres que están en estado de embarazo no se pueden afiliar."
+                },
+                {
+                    question: "¿Cómo tramito una incapacidad?",
+                    answer: "Es muy sencillo. Solo debes enviarnos la historia clínica y el certificado de incapacidad, y nosotros nos encargamos de radicarla."
+                }
+            ].map((item) => (
+                <div class="bg-white rounded-lg border border-gray-200 shadow-sm">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-6">
+                        <span class="font-semibold text-lg text-primary">{item.question}</span>
+                        <i class="fas fa-chevron-down accordion-icon transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="px-6 pb-6 text-gray-600">{item.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    // FAQ Accordion
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling as HTMLElement | null;
+      const icon = header.querySelector(".accordion-icon");
+
+      const isOpening = content?.style.maxHeight;
+
+      // Close all other accordions
+      document.querySelectorAll(".accordion-content").forEach((item) => {
+        (item as HTMLElement).style.maxHeight = "";
+        const prevSibling = item.previousElementSibling;
+        if (prevSibling) {
+          const icon = prevSibling.querySelector(".accordion-icon");
+          if (icon) {
+            icon.classList.remove("rotate-180");
+          }
+        }
+      });
+
+      // Open the clicked one if it was closed
+      if (isOpening) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        if (icon) {
+          icon.classList.add("rotate-180");
+        }
+      }
+    });
+  });
+</script>
