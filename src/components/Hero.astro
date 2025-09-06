@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+import backgroundImage from "../assets/asesor3.png";
+---
+
+<section
+  id="inicio"
+  class="hero-banner text-white"
+  style={`background-image: url(${backgroundImage.src});`}
+>
+  <div class="container mx-auto px-6 py-32 text-center">
+    <h1
+      class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-on-scroll"
+    >
+      Tu Tranquilidad es Nuestro Compromiso
+    </h1>
+    <p
+      class="text-lg md:text-xl font-medium tracking-wide mb-8 max-w-3xl mx-auto animate-on-scroll"
+      style="transition-delay: 200ms;"
+    >
+      Afiliaciones a seguridad social, sin complicaciones. Trámites fáciles,
+      rápidos y seguros.
+    </p>
+    <a
+      href="#planes"
+      class="bg-accent text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-accent-dark transition-transform transform hover:scale-105 shadow-2xl animate-on-scroll"
+      style="transition-delay: 400ms;">Descubre tu Plan Ideal</a
+    >
+  </div>
+</section>
