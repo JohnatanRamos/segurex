@@ -1,0 +1,33 @@
+:root {
+    /* Colors */
+    --color-primary: #2d3270;
+    --color-accent: #788dfa;
+    --color-accent-dark: #5f73e8;
+    --color-background: #FCFBF8;
+    --color-text: #333;
+}
+
+/* Custom Colors Utility Classes */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.border-accent {
+    border-color: var(--color-accent);
+}
+
+.hover\:bg-accent-dark:hover {
+    background-color: var(--color-accent-dark);
+}

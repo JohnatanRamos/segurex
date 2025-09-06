@@ -1,5 +1,8 @@
 @import "tailwindcss";
+@import "./_variables.css";
+@import "./_animations.css";
 
+/* Font Face Declarations */
 @font-face {
   font-family: 'Poppins';
   src: url('/fonts/Poppins-Regular.woff2') format('woff2');
@@ -24,6 +27,23 @@
   font-display: swap;
 }
 
+/* Base Styles */
 :root {
   font-family: 'Poppins', system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Component Specific Styles */
+.hero-banner {
+  background-image: linear-gradient(
+    rgba(45, 50, 112, 0.8), 
+    rgba(45, 50, 112, 0.8)
+  ), url('https://placehold.co/1920x800/2d3270/F8F8F8?text=Imagen+Institucional');
+  background-size: cover;
+  background-position: center;
 }
