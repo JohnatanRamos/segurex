@@ -43,3 +43,9 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+html {
+  /* Si tu header mide, por ejemplo, 4rem (64px) */
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth; /* opcional, para scroll animado */
+}
