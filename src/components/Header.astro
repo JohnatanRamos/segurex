@@ -1,0 +1,45 @@
+---
+import logo from '../assets/logo_cropped.webp';
+---
+
+<header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#">
+                <img src={logo.src} alt="SEGUREX Logo" class="h-auto w-40">
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#inicio" class="text-gray-600 hover:text-primary transition font-medium">Inicio</a>
+                <a href="#servicios" class="text-gray-600 hover:text-primary transition font-medium">Servicios</a>
+                <a href="#planes" class="text-gray-600 hover:text-primary transition font-medium">Planes</a>
+                <a href="#ubicacion" class="text-gray-600 hover:text-primary transition font-medium">Ubicación</a>
+                <a href="#faq" class="text-gray-600 hover:text-primary transition font-medium">Preguntas</a>
+                <a href="#contacto" class="bg-accent text-white px-6 py-2.5 rounded-full hover:bg-accent-dark transition font-bold shadow-sm hover:shadow-lg">Contáctanos</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#inicio" class="block py-2 text-gray-600 hover:text-primary">Inicio</a>
+            <a href="#servicios" class="block py-2 text-gray-600 hover:text-primary">Servicios</a>
+            <a href="#planes" class="block py-2 text-gray-600 hover:text-primary">Planes</a>
+            <a href="#ubicacion" class="block py-2 text-gray-600 hover:text-primary">Ubicación</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-primary">Preguntas</a>
+            <a href="#contacto" class="block mt-2 bg-accent text-white text-center px-4 py-2 rounded-full hover:bg-accent-dark transition">Contáctanos</a>
+        </div>
+    </header>
+
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+</script>
