@@ -1,11 +1,91 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 import "../styles/global.css";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Header />
+  <Header />
+  <main>
+    <Hero />
+  </main>
 </Layout>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  // FAQ Accordion
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling as HTMLElement | null;
+      const icon = header.querySelector(".accordion-icon");
+
+      const isOpening = content?.style.maxHeight;
+
+      // Close all other accordions
+      document.querySelectorAll(".accordion-content").forEach((item) => {
+        (item as HTMLElement).style.maxHeight = "";
+        const prevSibling = item.previousElementSibling;
+        if (prevSibling) {
+          const icon = prevSibling.querySelector(".accordion-icon");
+          if (icon) {
+            icon.classList.remove("rotate-180");
+          }
+        }
+      });
+
+      // Open the clicked one if it was closed
+      if (isOpening) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        if (icon) {
+          icon.classList.add("rotate-180");
+        }
+      }
+    });
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      // Close mobile menu on click
+      if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+      }
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+      if (href) {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  });
+
+  // Scroll Animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+    observer.observe(element);
+  });
+</script>
