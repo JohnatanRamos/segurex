@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+---
+
+<div class="announcement-bar bg-primary text-white text-center py-2 relative overflow-hidden z-50">
+  <div class="slider-container h-full flex items-center justify-center">
+    <div id="announcement-slider" class="w-full text-center">
+      <span class="px-8 font-semibold text-sm"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const messages = [
+    "¡Afiliaciones de 24 a 48 horas!",
+    "Pago de incapacidades",
+    "Ubicados en Itagüí, Los Naranjos"
+  ];
+
+  let currentMessageIndex = 0;
+  const slider = document.getElementById("announcement-slider");
+
+  function updateSlider() {
+    if (slider) {
+      slider.style.opacity = "0";
+      setTimeout(() => {
+        const span = slider.querySelector("span");
+        if (span) {
+          span.textContent = messages[currentMessageIndex];
+        }
+        slider.style.opacity = "1";
+        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+      }, 500); // Duración de la transición de fade out
+    }
+  }
+
+  // Iniciar slider
+  updateSlider();
+  setInterval(updateSlider, 5000); // Cambia el anuncio cada 5 segundos
+</script>
+
+<style>
+.announcement-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#announcement-slider {
+  transition: opacity 0.5s ease-in-out;
+}
+</style>
