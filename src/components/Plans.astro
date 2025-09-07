@@ -1,5 +1,11 @@
 ---
 import "../styles/global.css";
+import data from "../config/phone_messages.json";
+
+const phone = data.phone_number;
+const just_EPS = encodeURIComponent(data.just_EPS);
+const just_ARL = encodeURIComponent(data.just_ARL);
+const complete_plan = encodeURIComponent(data.complete_plan);
 ---
 
 <section id="planes" class="py-20" style="background: linear-gradient(180deg, #FCFBF8 0%, #edf2ff 100%);">
@@ -16,7 +22,7 @@ import "../styles/global.css";
                     <p class="text-gray-500 text-3xl font-bold mb-4">Desde <span class="text-primary">$70.000</span></p>
                     <p class="text-gray-600 mb-6">Protección total para trabajadores. Asegura tu tranquilidad ante cualquier riesgo en tu entorno laboral.</p>
                 </div>
-                <a href="#contacto" class="mt-4 bg-gray-200 text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Afiliarme a ARL</a>
+                <a href={`https://wa.me/${phone}?text=${just_ARL}`} target="_blank" class="mt-4 bg-gray-200 text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Afiliarme a ARL</a>
             </div>
             <!-- Plan Card 2 (Highlighted): EPS -->
             <div class="bg-primary text-white rounded-xl shadow-2xl p-8 text-center flex flex-col justify-between transform md:scale-105 animate-on-scroll card-hover-effect" style="transition-delay: 200ms;">
@@ -26,7 +32,7 @@ import "../styles/global.css";
                     <p class="opacity-80 text-lg font-light mb-4">EPS + ARL + Caja + Pensión</p>
                     <p class="opacity-90 mb-6">La máxima cobertura para ti y tu familia. Accede a todos los beneficios del sistema de seguridad social sin preocupaciones.</p>
                 </div>
-                <a href="#contacto" class="mt-4 bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-dark transition shadow-lg">Obtener Plan Completo</a>
+                <a href={`https://wa.me/${phone}?text=${complete_plan}`} target="_blank" class="mt-4 bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-accent-dark transition shadow-lg">Obtener Plan Completo</a>
             </div>
             <!-- Plan Card 3: Pensión -->
             <div class="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col justify-between border-t-4 border-accent animate-on-scroll card-hover-effect" style="transition-delay: 400ms;">
@@ -35,7 +41,7 @@ import "../styles/global.css";
                     <p class="text-gray-500 text-3xl font-bold mb-4">Desde <span class="text-primary">$126.000</span></p>
                     <p class="text-gray-600 mb-6">Acceso a citas, urgencias, odontología, cirugías y pago de incapacidades.</p>
                 </div>
-                <a href="#contacto" class="mt-4 bg-gray-200 text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Afiliarme a EPS</a>
+                <a href={`https://wa.me/${phone}?text=${just_EPS}`} target="_blank" class="mt-4 bg-gray-200 text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition">Afiliarme a EPS</a>
             </div>
         </div>
     </div>

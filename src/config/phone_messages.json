@@ -1,4 +1,7 @@
 {
     "phone_number": "573113139609",
-    "default_message": "Hola, estoy interesado en sus servicios de seguridad. ¿Podrían proporcionarme más información?"
+    "default_message": "Hola, estoy interesado en sus servicios de seguridad. ¿Podrían proporcionarme más información?",
+    "just_EPS": "Hola, estoy interesado en afiliarme al plan solo EPS. ¿Podrían proporcionarme más información?",
+    "just_ARL": "Hola, estoy interesado en afiliarme al plan solo ARL. ¿Podrían proporcionarme más información?",
+    "complete_plan": "Hola, estoy interesado en afiliarme al plan completo. ¿Podrían proporcionarme más información?"
 }
