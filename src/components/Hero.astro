@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
 import backgroundImage from "../assets/asesor3.png";
+import data from "../config/phone_messages.json";
 
-const phone = "573113139609";
-const message = encodeURIComponent("Hola, me gustaría obtener más información sobre sus servicios.");
+const phone = data.phone_number;
+const message = encodeURIComponent(data.default_message);
 ---
 
 <section

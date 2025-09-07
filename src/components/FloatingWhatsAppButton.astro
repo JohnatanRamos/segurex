@@ -1,6 +1,8 @@
 ---
-const phone = "573113139609";
-const message = encodeURIComponent("Hola, me gustaría obtener más información sobre sus servicios.");
+import data from "../config/phone_messages.json";
+
+const phone = data.phone_number;
+const message = encodeURIComponent(data.default_message);
 ---
 <a
   href={`https://wa.me/${phone}?text=${message}`}
