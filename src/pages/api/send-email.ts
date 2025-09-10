@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
       to: "tramites@segurexservicios.com",
       subject: "Una nueva persona quiere contactarte",
       html: `
-        <h1>Nuevo mensaje desde tu página web 🚀</h1>
+        <h1>Nuevo mensaje desde tu página web </h1>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${phone}</p>
         <p><strong>Mensaje:</strong> ${message}</p>
