@@ -4,34 +4,138 @@ import "../styles/global.css";
 ---
 
 <section id="contacto" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">¿Listo para Empezar? Hablemos.</h2>
-                <p class="text-gray-600 mb-8">Nuestro equipo de expertos está listo para resolver todas tus dudas y ayudarte a elegir el mejor camino para tu futuro. ¡Contáctanos sin compromiso!</p>
-                <div class="space-y-4 text-lg">
-                    <p class="flex items-center"><Icon name="fa6-brands:whatsapp" class="mr-4 text-accent w-5" /> 311 313 9609</p>
-                    <p class="flex items-center"><Icon name="fa6-solid:envelope" class="mr-4 text-accent" /> tramites@segurexservicios.com</p>
-                    <p class="flex items-center"><Icon name="fa6-solid:location-dot" class="mr-4 text-accent" /> Carrera 49 # 53a-28, Los Naranjos, Itagüí</p>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-8 rounded-xl shadow-xl border border-gray-200 animate-on-scroll" style="transition-delay: 200ms;">
-                <form>
-                    <div class="mb-5">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-700">Nombre Completo</label>
-                        <input type="text" id="name" class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent" placeholder="John Restrepo" required>
-                    </div>
-                    <div class="mb-5">
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-700">Número de Celular</label>
-                        <input type="text" id="phone" class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent" placeholder="3214567802" required>
-                    </div>
-                    <div class="mb-5">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-700">Tu Mensaje</label>
-                        <textarea id="message" rows="4" class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent" placeholder="Escribe tu consulta aquí..." required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-accent text-white font-bold py-3.5 px-8 rounded-full text-lg hover:bg-accent-dark transition shadow-lg hover:shadow-xl">Enviar Ahora</button>
-                </form>
-            </div>
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          ¿Listo para Empezar? Hablemos.
+        </h2>
+        <p class="text-gray-600 mb-8">
+          Nuestro equipo de expertos está listo para resolver todas tus dudas y
+          ayudarte a elegir el mejor camino para tu futuro. ¡Contáctanos sin
+          compromiso!
+        </p>
+        <div class="space-y-4 text-lg">
+          <p class="flex items-center">
+            <Icon name="fa6-brands:whatsapp" class="mr-4 text-accent w-5" /> 311
+            313 9609
+          </p>
+          <p class="flex items-center">
+            <Icon name="fa6-solid:envelope" class="mr-4 text-accent" /> tramites@segurexservicios.com
+          </p>
+          <p class="flex items-center">
+            <Icon name="fa6-solid:location-dot" class="mr-4 text-accent" /> Carrera
+            49 # 53a-28, Los Naranjos, Itagüí
+          </p>
         </div>
+      </div>
+      <div
+        class="bg-gray-50 p-8 rounded-xl shadow-xl border border-gray-200 animate-on-scroll"
+        style="transition-delay: 200ms;"
+      >
+        <form id="contact-form">
+          <div class="mb-5">
+            <label
+              for="name"
+              class="block mb-2 text-sm font-medium text-gray-700"
+              >Nombre Completo</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent"
+              placeholder="John Restrepo"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-gray-700"
+              >Número de Celular</label
+            >
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent"
+              placeholder="3214567802"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label
+              for="message"
+              class="block mb-2 text-sm font-medium text-gray-700"
+              >Tu Mensaje</label
+            >
+            <textarea
+              name="message"
+              id="message"
+              rows="4"
+              class="block w-full p-3 text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-accent focus:border-accent"
+              placeholder="Escribe tu consulta aquí..."></textarea>
+          </div>
+          <button
+            id="send-btn"
+            type="submit"
+            class="w-full bg-accent text-white font-bold py-3.5 px-8 rounded-full text-lg hover:bg-accent-dark transition shadow-lg hover:shadow-xl"
+            >Enviar Ahora</button
+          >
+        </form>
+        <p id="status"></p>
+      </div>
     </div>
+  </div>
 </section>
+
+<script>
+  interface BodyData {
+    name: FormDataEntryValue | null;
+    phone: FormDataEntryValue | null;
+    message: FormDataEntryValue | null;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    form!.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formEl = e.currentTarget as HTMLFormElement;
+      const formData = new FormData(formEl);
+
+      const body = {
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        message: formData.get("message"),
+      };
+
+      await sendEmail(body);
+      formEl.reset();
+    });
+  });
+
+  async function sendEmail(body: BodyData) {
+    const btn = document.getElementById("send-btn") as HTMLButtonElement;
+    btn.disabled = true;
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      document.getElementById("status")!.textContent = data.success
+        ? "✅ Datos enviados correctamente, pronto nos contactaremos contigo."
+        : "❌ Error";
+
+    } catch (err) {
+      document.getElementById("status")!.textContent = "❌ Error: " + err;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+</script>
