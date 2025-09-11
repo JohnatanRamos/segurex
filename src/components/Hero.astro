@@ -12,7 +12,7 @@ const message = encodeURIComponent(data.default_message);
   class="mt-10 hero-banner text-white"
   style={`background-image: url(${backgroundImage.src}); height: calc(100vh - 128px);`}
 >
-  <div class="container mx-auto px-6 py-10 lg:pt-56 text-center">
+  <div class="container mx-auto px-6 py-10 h-full flex flex-col justify-end items-center lg:pt-52 text-center">
     <h1
       class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-on-scroll"
     >
@@ -28,7 +28,7 @@ const message = encodeURIComponent(data.default_message);
     <a
       href={`https://wa.me/${phone}?text=${message}`}
       target="_blank"
-      class="bg-accent text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-accent-dark transition-transform transform hover:scale-105 shadow-2xl animate-on-scroll"
+      class="max-w-52 bg-accent text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-accent-dark transition-transform transform hover:scale-105 shadow-2xl animate-on-scroll"
       style="transition-delay: 400ms;">Afiliate Ahora</a
     >
   </div>
